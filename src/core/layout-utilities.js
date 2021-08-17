@@ -352,7 +352,9 @@ var layoutUtilities = function (cy, options) {
    * @param { any[] } components 
    */
   instance.packComponents = function (components, randomize = true) {
-    
+    var d = new Date();
+    var time = d.getTime();
+
     var spacingAmount = options.componentSpacing;
     
     if(spacingAmount !== undefined) { // is spacingAmount is undefined, we expect it to be an incremental packing
@@ -616,6 +618,9 @@ var layoutUtilities = function (cy, options) {
         // width = height * desiredAspectRatio;
       }
     }
+    var time2 = d.getTime();
+
+    console.log(time2 - time);
 
     return packingResult;
   };
