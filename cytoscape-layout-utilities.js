@@ -384,7 +384,6 @@ class Grid {
       polyomino.location.x = i;
       polyomino.location.y = j;
 
-
       var vertical = new Array(polyomino.stepWidth);
 
       for(var k = 0; k < polyomino.stepWidth; k++){
@@ -1359,8 +1358,11 @@ var layoutUtilities = function (cy, options) {
         // width = height * desiredAspectRatio;
       }
     }
+
+    d = new Date();
     var time2 = d.getTime();
-    console.log(time2-time);
+    console.log(time2 - time);
+    // console.log(time);
     return packingResult;
   };
 

@@ -618,6 +618,7 @@ var layoutUtilities = function (cy, options) {
         // width = height * desiredAspectRatio;
       }
     }
+    d = new Date();
     var time2 = d.getTime();
 
     console.log(time2 - time);
