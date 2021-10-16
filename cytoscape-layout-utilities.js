@@ -1242,7 +1242,6 @@ var layoutUtilities = function (cy, options) {
           });
         });
         //update number of occupied cells in polyomino
-        console.log(componentPolyomino.stepWidth + " " + componentPolyomino.stepHeight);
         for (var i = 0; i < componentPolyomino.stepWidth; i++) {
           for (var j = 0; j < componentPolyomino.stepHeight; j++) {
             if (componentPolyomino.grid[i][j]) {
