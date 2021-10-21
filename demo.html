@@ -321,7 +321,7 @@
           subgraphs.push(subgraph);
         });
 
-        var result = api.packComponents(subgraphs, !document.getElementById('Incremental-checkbox').checked);
+        var result = api.packComponents(subgraphs, !document.getElementById('Incremental-checkbox').checked, document.getElementById('spacewise-checkbox').checked);
         $("#resultAspectRatio").text(result.aspectRatio || "-");
         $("#resultFullness").text(result.fullness.toFixed(2) + " %");
         $("#resultAdjustedFullness").text(result.adjustedFullness ? result.adjustedFullness + " %" : "-");
@@ -459,12 +459,13 @@
       document.getElementById('graphml-input')
         .addEventListener('change', function (ev) {
           const file = this.files[0];
-
-          cy.elements().remove(); 
-          file.text().then((s) => {
-              cy.graphml({layoutBy: "fcose"})
-              cy.graphml(s);
-          });
+          if(file){
+            cy.elements().remove(); 
+            file.text().then((s) => {
+                cy.graphml({layoutBy: "fcose"})
+                cy.graphml(s);
+            });
+          }
         });
 
       document.getElementById('Incremental-checkbox')
@@ -534,6 +535,10 @@
     <button id="polyominoPack" class="button">Pack components</button>
     <br />
     <br />
+    <div style="display: flex; align-items: flex-start;">
+      <label>Spacewise Fullness: </label>
+      <input id="spacewise-checkbox" type="checkbox" value="bruh">
+    </div>
     <div style="display: flex; align-items: flex-start;">
       <label>Incremental: </label>
       <input id="Incremental-checkbox" type="checkbox" value="bruh">
