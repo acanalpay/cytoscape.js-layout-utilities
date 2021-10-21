@@ -353,7 +353,7 @@ var layoutUtilities = function (cy, options) {
    * @param {boolean} spacewise include the empty cells inside the components to calculate how well the algorithm perform
    * spacewise is false by default so the algorithm looks how well the free cells (outside the polyomino) is used
    */
-  instance.packComponents = function (components, randomize = true, spacewise = false) {
+  instance.packComponents = function (components, randomize = true, spacewise = true) {
     var d = new Date();
     var time = d.getTime();
 
@@ -505,7 +505,7 @@ var layoutUtilities = function (cy, options) {
                 var indexX = Math.floor(point.x);
                 var indexY = Math.floor(point.y);
                 if (indexX >= 0 && indexX < componentPolyomino.stepWidth && indexY >= 0 && indexY < componentPolyomino.stepHeight){
-                  if(!spacewise && !componentPolyomino.grid[indexX][indexY])
+                  if(spacewise && !componentPolyomino.grid[indexX][indexY])
                     componentPolyomino.numberOfOccupiredCells++;
                   componentPolyomino.grid[indexX][indexY] = true;
                 }
